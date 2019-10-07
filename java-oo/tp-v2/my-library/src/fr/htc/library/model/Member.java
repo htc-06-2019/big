@@ -73,6 +73,7 @@ public class Member {
 	public List<Book> getBooks() {
 		return books;
 	}
+	
 
 	public boolean canCheckout() {
 		if(this.books.size() < MAX_CHECKOUT_BOOK) {
@@ -80,5 +81,11 @@ public class Member {
 		}
 		return false;
 	}
-
+	
+	public boolean canCheckin() {
+		if (this.books.size()==0) {
+			return false;
+		}
+		return true;
+	}
 }
