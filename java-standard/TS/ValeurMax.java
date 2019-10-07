@@ -15,7 +15,7 @@ public class ValeurMax implements Operation {
 		int tableau[]= new int[j];
 		
 		for (int i=0; i<tableau.length;i++) {
-			System.out.println("entrer le "+ i++ +" élément du tableau");
+			System.out.println("entrer le "+ (i+1) +" Ã©lÃ©ment du tableau");
 			tableau[i] = scanner.nextInt();
 			
 		}
