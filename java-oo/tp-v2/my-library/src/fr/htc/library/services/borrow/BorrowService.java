@@ -4,4 +4,6 @@ public interface BorrowService {
 
 	boolean checkout(String matricule, String cote);
 
+	boolean checkIn(String matricule, String cote);
+	
 }
