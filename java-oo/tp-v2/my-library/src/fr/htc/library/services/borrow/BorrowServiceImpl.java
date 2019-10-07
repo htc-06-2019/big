@@ -48,4 +48,35 @@ public class BorrowServiceImpl implements BorrowService {
 		return true;
 	}
 
+	@Override
+	public boolean checkIn(String matricule, String cote) {
+		if (matricule == null || cote == null) {
+			System.out.println("Can't complete operation : checkout) : matricule and cote are mandatory");
+			return false;
+		}
+		
+		Member member = memberDao.findByMatricule(matricule);
+		if (member == null) {
+			System.out.println("No Member matching with matricule :" + matricule);
+			return false;
+		}
+		
+		Book book = bookDao.findByCote(cote);
+		if (book == null) {
+			System.out.println("No Book matching with cote :" + cote);
+			return false;
+		}
+		
+		if(member.canCheckin() == false) {
+			System.out.println("Memeber no book reached  :" + matricule);
+			return false;
+		}
+		
+		member.getBooks().remove(book);
+		book.setBorrower(null);		
+		
+		return false;
+	}
+
+	
 }
